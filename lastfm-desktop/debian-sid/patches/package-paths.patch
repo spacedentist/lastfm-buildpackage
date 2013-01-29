@@ -1,0 +1,32 @@
+Description: Fix up paths for package installation
+--- lastfm-desktop-2.1.30.orig/lib/unicorn/UnicornApplication.cpp
++++ lastfm-desktop-2.1.30/lib/unicorn/UnicornApplication.cpp
+@@ -224,7 +224,7 @@ unicorn::Application::translate()
+ #ifdef Q_WS_MAC
+     QDir const d = lastfm::dir::bundle().filePath( "Contents/Resources/qm" );
+ #else
+-    QDir const d = qApp->applicationDirPath() + "/i18n";
++    QDir const d = QDir( "/usr/share/lastfm-scrobbler/i18n" );
+ #endif
+ 
+     //TODO need a unicorn/core/etc. translation, plus policy of no translations elsewhere or something!
+@@ -232,7 +232,7 @@ unicorn::Application::translate()
+     t1->load( d.filePath( "lastfm_" + qmExt ) );
+ 
+     QTranslator* t2 = new QTranslator;
+-    t2->load( d.filePath( "qt_" + qmExt ) );
++    t2->load( QDir("/usr/share/qt4/translations").filePath( "qt_" + qmExt ) );
+ 
+     installTranslator( t1 );
+     installTranslator( t2 );
+@@ -361,8 +361,8 @@ unicorn::Application::refreshStyleSheet(
+         }
+ 
+         if( styleSheet().isEmpty()) {
+-            m_cssFileName = applicationDirPath() + CSS_PATH + applicationName() + ".css";
+-            m_cssDir = applicationDirPath() + CSS_PATH;
++            m_cssFileName = "/usr/share/lastfm-scrobbler/" + applicationName() + ".css";
++            m_cssDir = "/usr/share/lastfm-scrobbler/";
+         }
+     }
+ 

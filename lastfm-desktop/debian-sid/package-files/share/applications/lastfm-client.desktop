@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Last.fm Client
+Comment=Listen to Last.fm radio
+Exec=/usr/bin/lastfm-client
+Icon=lastfm-client
+Terminal=false
+Type=Application
+Categories=Qt;Audio;AudioVideo;
+StartupNotify=true

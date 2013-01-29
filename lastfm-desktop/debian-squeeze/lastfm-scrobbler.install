@@ -1,0 +1,9 @@
+_bin/Last.fm* /usr/lib/lastfm-scrobbler
+_bin/liblistener.so.1.0.0 /usr/lib/lastfm-scrobbler
+_bin/liblistener.so.1 /usr/lib/lastfm-scrobbler
+_bin/liblogger.so.1.0.0 /usr/lib/lastfm-scrobbler
+_bin/liblogger.so.1 /usr/lib/lastfm-scrobbler
+_bin/libunicorn.so.1.0.0 /usr/lib/lastfm-scrobbler
+_bin/libunicorn.so.1 /usr/lib/lastfm-scrobbler
+app/client/*.css /usr/share/lastfm-scrobbler
+debian/package-files/* /usr

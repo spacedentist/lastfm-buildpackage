@@ -1,0 +1,12 @@
+Don't do a silent build
+--- a/admin/include.qmake
++++ b/admin/include.qmake
+@@ -38,7 +38,7 @@ linux*{
+ #default install target
+ target.path = $$INSTALL_DIR/lib
+ 
+-CONFIG += silent
++#CONFIG += silent
+ 
+ macx:CONFIG( app_bundle ): contains( TEMPLATE, app ) {
+     DISTDIR = $$ROOT_DIR/admin/dist/mac

@@ -1,0 +1,12 @@
+Disable ffmpeg, because squeeze ships an outdated version we can't work with
+--- lastfm-desktop-2.1.30.orig/app/client/client.pro
++++ lastfm-desktop-2.1.30/app/client/client.pro
+@@ -3,7 +3,7 @@ TARGET = "Last.fm Scrobbler"
+ VERSION = 2.1.33
+ DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+ QT = core gui xml network sql webkit
+-CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg
++CONFIG += lastfm unicorn listener logger phonon fingerprint
+ win32:LIBS += user32.lib kernel32.lib psapi.lib
+ DEFINES += LASTFM_COLLAPSE_NAMESPACE
+ 

@@ -1,0 +1,47 @@
+Remove usage of currentDateTimeUtc, which is unavailable in Qt 4.6 (squeeze)
+--- lastfm-desktop-2.1.30.orig/app/client/Application.cpp
++++ lastfm-desktop-2.1.30/app/client/Application.cpp
+@@ -562,8 +562,8 @@ Application::minutesUntilNextSkip( const
+     // the next skip can happen 10 minutes after the last skip
+     // or when the earliest skip becomes more than an hour old
+ 
+-    int secondsSinceLastSkip = m_skips[ station.url() ].last().secsTo( QDateTime::currentDateTimeUtc() );
+-    int secondsUntilFirstSkipExpires = (60 * 60) - (m_skips[ station.url() ].first().secsTo( QDateTime::currentDateTimeUtc() ));
++    int secondsSinceLastSkip = m_skips[ station.url() ].last().secsTo( QDateTime::currentDateTime().toUTC() );
++    int secondsUntilFirstSkipExpires = (60 * 60) - (m_skips[ station.url() ].first().secsTo( QDateTime::currentDateTime().toUTC() ));
+     secondsSinceLastSkip = secondsSinceLastSkip == 0 ? 1 : secondsSinceLastSkip; // this stops us saying that there's 11 minutes until the next skip
+     return 1 + (qMin( (10 * 60) - secondsSinceLastSkip, secondsUntilFirstSkipExpires ) / 60);
+ }
+@@ -575,12 +575,12 @@ Application::onSkipTriggered()
+ 
+     // remove skips for this station that are older than an hour
+     while ( (m_skips[ station ].count()
+-            && m_skips[ station ].head().secsTo( QDateTime::currentDateTimeUtc() ) >= 60 * 60 ) // limit to skips in the last hour
++            && m_skips[ station ].head().secsTo( QDateTime::currentDateTime().toUTC() ) >= 60 * 60 ) // limit to skips in the last hour
+             || m_skips[ station ].count() > SKIP_LIMIT ) // limit to the last SKIP_LIMIT skips
+         m_skips[ station ].dequeue();
+ 
+     if ( m_skips[ station ].count() == SKIP_LIMIT
+-         && m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) < 10 * 60 )
++         && m_skips[ station ].last().secsTo( QDateTime::currentDateTime().toUTC() ) < 10 * 60 )
+     {
+         // There have been SKIP_LIMIT skips in the last hour
+         // and the last skip was under 10 minutes ago
+@@ -589,7 +589,7 @@ Application::onSkipTriggered()
+     else
+     {
+         // Make a note of the station and the time that it was skipped
+-        m_skips[ station ].enqueue( QDateTime::currentDateTimeUtc() );
++        m_skips[ station ].enqueue( QDateTime::currentDateTime().toUTC() );
+ 
+         if ( m_skips[ station ].count() >= 4 )
+         {
+@@ -597,7 +597,7 @@ Application::onSkipTriggered()
+             int skipsLeft = SKIP_LIMIT - m_skips[ station ].count();
+ 
+             // if skips is 0 and we got here it's because there were no skips in the last 10 minutes
+-            if ( skipsLeft <= 0 || m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) >= 10 * 60 )
++            if ( skipsLeft <= 0 || m_skips[ station ].last().secsTo( QDateTime::currentDateTime().toUTC() ) >= 10 * 60 )
+                 m_mw->showMessage( tr( "You've reached this station's skip limit. Skip again in %n minute(s).", "", minutesUntilNextSkip( RadioService::instance().station() ) ), "skips", 10 );
+             else
+                 m_mw->showMessage( tr( "You have %n skip(s) remaining on this station.", "", skipsLeft ), "skips", 10 );

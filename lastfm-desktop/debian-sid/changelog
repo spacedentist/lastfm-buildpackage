@@ -1,0 +1,23 @@
+lastfm-desktop (2.1.33-0lastfm1) unstable; urgency=low
+
+  * New upstream version 2.1.33
+
+ -- Sven Over <sven@last.fm>  Tue, 29 Jan 2013 23:11:49 +0000
+
+lastfm-desktop (2.1.30-1~lastfm1) unstable; urgency=low
+
+  * New upstream version 2.1.30
+
+ -- Sven Over <sven@last.fm>  Mon, 14 Jan 2013 21:52:49 +0000
+
+lastfm-desktop (2.1.28-1~lastfm1) unstable; urgency=low
+
+  * New upstream version 2.1.28
+
+ -- Sven Over <sven@last.fm>  Fri, 11 Jan 2013 17:52:56 +0000
+
+lastfm-desktop (2.1.24+git20121011~1) precise; urgency=low
+
+  * New upstream
+
+ -- Michael Coffey <michaelc@last.fm>  Fri, 12 Oct 2012 12:34:42 +0000

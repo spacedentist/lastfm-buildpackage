@@ -1,0 +1,78 @@
+liblastfm (1.0.6-0lastfm1) unstable; urgency=low
+
+  * New upstream version 1.0.6
+
+ -- Sven Over <sven@last.fm>  Tue, 29 Jan 2013 22:15:42 +0000
+
+liblastfm (1.0.5-1~lastfm1) stable; urgency=low
+
+  * New upstream version 1.0.5
+
+ -- Sven Over <sven@last.fm>  Mon, 14 Jan 2013 16:20:42 +0000
+
+liblastfm (1.0.4-1~lastfm1) unstable; urgency=low
+
+  * New upstream version 1.0.4
+
+ -- Sven Over <sven@last.fm>  Fri, 11 Jan 2013 16:21:16 +0000
+
+liblastfm (1.0.3~1) precise; urgency=low
+
+  * Last.fm upstream test package
+
+ -- Michael Coffey <michaelc@last.fm>  Tue, 09 Oct 2012 09:55:21 +0000
+
+liblastfm (1.0.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * Update symbols files.
+  * Add patches:
+    - fix_wrong_parameter_name_in_removetag.patch
+    - dont_leak_qnetwork_replies_in_audioscrobbler.patch
+    - fix_no_return_in_nonvoid.patch
+  * Update debian/copyright and debian/watch; upstream changed the location of
+    its release repository.
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Wed, 12 Sep 2012 17:27:02 -0700
+
+liblastfm (1.0.1-1) experimental; urgency=low
+
+  * New upstream
+  * Remove fix-build-with-ruby1.9.patch
+  * Rename lib packages due to SONAME change
+  * Modify Build-Depends since upstream now uses cmake
+  * Use debhelper 9 for multiarch and hardened build flags
+  * Fix lintian warnings description-synopsis-starts-with-article,
+    binary-control-field-duplicates-source
+  * Add libqt4-dev and misc:Depends to liblastfm-dev; remove shlibs:Depends
+    from liblastfm-dbg
+  * Add a watch file
+  * Bump Standards-Version to 3.9.3
+  * Update debian/copyright
+  * Add symbols files and use pkgkde_symbolshelper in dh invocation
+  * Add --parallel to dh invocation
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Thu, 26 Jul 2012 21:23:10 -0700
+
+liblastfm (0.4.0~git20090710-2) unstable; urgency=medium
+
+  * Fix compilation with ruby1.9.1 >= 1.9.2 (Closes: #676104)
+  * Use source format 3.0 (quilt)
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Mon, 16 Jul 2012 20:21:22 -0700
+
+liblastfm (0.4.0~git20090710-1) unstable; urgency=low
+
+  * New upstream release from git snapshot.
+  * Bump Standards-Version to 3.8.2 (no changes needed).
+  * Shorten package descriptions.
+  * Bump shlibs version for liblastfm0.
+  * Rename debug package.
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Tue, 14 Jul 2009 11:14:08 -0700
+
+liblastfm (0.3.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #524948)
+
+ -- John Stamp <jstamp@users.sourceforge.net>  Thu, 04 Jun 2009 21:21:45 -0700
