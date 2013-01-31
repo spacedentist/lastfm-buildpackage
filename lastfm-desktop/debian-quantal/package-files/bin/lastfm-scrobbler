@@ -1,0 +1,5 @@
+#!/bin/sh
+
+RUNDIR="/usr/lib/lastfm-scrobbler"
+export LD_LIBRARY_PATH="${RUNDIR}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+exec "${RUNDIR}/Last.fm Scrobbler" "$@"
